@@ -3,7 +3,7 @@ from rest_framework import serializers
 from apps.users.models import User, CsvFile
 
 
-class UsersSerializer(serializers.ModelSerializer):
+class UsersSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
     first_name = serializers.CharField(
         required=True,
@@ -15,19 +15,8 @@ class UsersSerializer(serializers.ModelSerializer):
     )
     email = serializers.EmailField()
 
-    class Meta:
-        model = User
-        fields = [
-            'id',
-            'first_name',
-            'last_name',
-            'email',
-        ]
-
 
 class SignUpSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField()
-    password = serializers.CharField()
     confirm_password = serializers.CharField()
     first_name = serializers.CharField(
         required=True,

@@ -1,4 +1,4 @@
-from apps.core.routers import DefaultRouter
+from apps.users.routers import DefaultRouter
 from apps.users.views import UserViewSet, SignUpViewSet, FileViewSet
 
 router = DefaultRouter()
